@@ -1,1 +1,0 @@
-{"version":3,"file":"student.services.js","sourceRoot":"","sources":["../../../../src/app/modules/student/student.services.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAE,MAAM,oBAAoB,CAAC;AAE7C,MAAM,CAAC,MAAM,iBAAiB,GAAG,KAAK,EAAE,WAAqB,EAAE,EAAE;IAC/D,MAAM,MAAM,GAAG,MAAM,OAAO,CAAC,MAAM,CAAC,WAAW,CAAC,CAAC;IACjD,OAAO,MAAM,CAAC;AAChB,CAAC,CAAC"}
