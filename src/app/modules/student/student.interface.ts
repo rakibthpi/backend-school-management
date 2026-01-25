@@ -25,7 +25,7 @@ export type IAcademicBackground = {
 };
 
 export type IStudent = {
-  studentId: string;
+  studentId?: string;
   name: IName;
   email: string;
   gender: 'male' | 'female'; // That is type littral
@@ -38,6 +38,7 @@ export type IStudent = {
   guardian: IGuardian;
   localGuardian: ILocalGuardian;
   academicBackground: IAcademicBackground;
-  admissionDate: string;
+  admissionDate?: string;
   profileImage?: string;
+  isDeleted: boolean;
 };
