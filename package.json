@@ -18,14 +18,23 @@
   "description": "",
   "dependencies": {
     "@types/cors": "^2.8.19",
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "http-status": "^2.1.0",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.4",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/http-status": "^0.2.30",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.0.9",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",

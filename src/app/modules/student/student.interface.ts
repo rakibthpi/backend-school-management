@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export type IName = {
   firstName: string;
   middleName: string;
@@ -25,11 +27,12 @@ export type IAcademicBackground = {
 };
 
 export type IStudent = {
-  studentId?: string;
+  studentId: string;
+  user: Types.ObjectId;
   name: IName;
-  email: string;
-  gender: 'male' | 'female'; // That is type littral
+  gender: 'male' | 'female' | 'other';
   dateOfBirth: string;
+  email: string;
   contactNo: string;
   emergencyContactNo: string;
   bloodGroup?: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
@@ -37,8 +40,11 @@ export type IStudent = {
   permanentAddress: string;
   guardian: IGuardian;
   localGuardian: ILocalGuardian;
+  academicDepartment: Types.ObjectId;
+  admissionSemester: Types.ObjectId;
   academicBackground: IAcademicBackground;
-  admissionDate?: string;
   profileImage?: string;
+  admissionDate?: string; // Optional in prompt? "admissionDate" listed. Model has it optional.
+  status: 'active' | 'blocked'; // Prompt just says status. Assuming values.
   isDeleted: boolean;
 };

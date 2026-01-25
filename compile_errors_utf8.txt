@@ -1,0 +1,18 @@
+﻿src/app/middlewares/validateRequest.ts(1,10): error TS1484: 'NextFunction' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/app/middlewares/validateRequest.ts(1,24): error TS1484: 'Request' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/app/middlewares/validateRequest.ts(1,33): error TS1484: 'Response' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/app/middlewares/validateRequest.ts(2,10): error TS2724: '"zod"' has no exported member named 'AnyZodObject'. Did you mean 'ZodObject'?
+src/app/middlewares/validateRequest.ts(4,24): error TS2835: Relative import paths need explicit file extensions in ECMAScript imports when '--moduleResolution' is 'node16' or 'nodenext'. Did you mean '../utils/catchAsync.js'?
+src/app/modules/user/user.service.ts(7,10): error TS1484: 'IAcademicSemester' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/app/modules/user/user.service.ts(12,10): error TS1484: 'IUser' is a type and must be imported using a type-only import when 'verbatimModuleSyntax' is enabled.
+src/app/modules/user/user.service.ts(48,25): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.service.ts(49,20): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.service.ts(95,25): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.service.ts(96,20): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.service.ts(142,23): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.service.ts(143,20): error TS2532: Object is possibly 'undefined'.
+src/app/modules/user/user.validation.ts(6,7): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(params?: string | { error?: string | $ZodErrorMap<$ZodIssueInvalidType<unknown>> | undefined; message?: string | undefined; } | undefined): ZodString', gave the following error.
+    Object literal may only specify known properties, and 'required_error' does not exist in type '{ error?: string | $ZodErrorMap<$ZodIssueInvalidType<unknown>> | undefined; message?: string | undefined; }'.
+  Overload 2 of 2, '(params?: string | { error?: string | $ZodErrorMap<$ZodIssueInvalidType<unknown>> | undefined; message?: string | undefined; } | undefined): $ZodType<...>', gave the following error.
+    Object literal may only specify known properties, and 'required_error' does not exist in type '{ error?: string | $ZodErrorMap<$ZodIssueInvalidType<unknown>> | undefined; message?: string | undefined; }'.

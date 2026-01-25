@@ -1,137 +1,61 @@
 import type { Request, Response } from 'express';
+import httpStatus from 'http-status';
 
-import { StudentService } from './student.services.js';
+import catchAsync from '../../utils/catchAsync.js';
+import sendResponse from '../../utils/sendResponse.js';
+import { StudentServices } from './student.services.js';
 
-const createStudent = async (req: Request, res: Response) => {
-  try {
-    const { student } = req.body;
-    const result = await StudentService.createStudentToDB(student);
-    res.status(201).json({
-      success: true,
-      message: 'Student created successfully',
-      data: result,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to create student',
-      error,
-    });
-  }
-};
+const getSingleStudent = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await StudentServices.getSingleStudentFromDB(id as string);
 
-const getAllStudents = async (req: Request, res: Response) => {
-  try {
-    const result = await StudentService.getAllStudentsFromDB();
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student is retrieved sucessfully',
+    data: result,
+  });
+});
 
-    if (result && result.length > 0) {
-      res.status(200).json({
-        success: true,
-        message: 'Students fetched successfully',
-        data: result,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: 'No students found',
-        data: null,
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to fetch students',
-      error,
-    });
-  }
-};
+const getAllStudents = catchAsync(async (req: Request, res: Response) => {
+  const result = await StudentServices.getAllStudentsFromDB();
 
-const getSingleStudent = async (req: Request, res: Response) => {
-  try {
-    const { studentId } = req.params;
-    const result = await StudentService.getSingleStudentFromDB(studentId as string);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Students are retrieved sucessfully',
+    data: result,
+  });
+});
 
-    if (result) {
-      res.status(200).json({
-        success: true,
-        message: 'Student fetched successfully',
-        data: result,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: 'Student not found',
-        data: null,
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to fetch student',
-      error,
-    });
-  }
-};
+const updateStudent = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { student } = req.body;
+  const result = await StudentServices.updateStudentIntoDB(id as string, student);
 
-const updateStudent = async (req: Request, res: Response) => {
-  try {
-    const { studentId } = req.params;
-    const { student } = req.body;
-    const result = await StudentService.updateStudentInDB(studentId as string, student);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student is updated sucessfully',
+    data: result,
+  });
+});
 
-    if (result) {
-      res.status(200).json({
-        success: true,
-        message: 'Student updated successfully',
-        data: result,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: 'Student not found for update',
-        data: null,
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to update student',
-      error,
-    });
-  }
-};
+const deleteStudent = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await StudentServices.deleteStudentFromDB(id as string);
 
-const deleteStudent = async (req: Request, res: Response) => {
-  try {
-    const { studentId } = req.params;
-    const result = await StudentService.deleteStudentFromDB(studentId as string);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student is deleted sucessfully',
+    data: result,
+  });
+});
 
-    if (result) {
-      res.status(200).json({
-        success: true,
-        message: 'Student deleted successfully',
-        data: result,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: 'Student not found for deletion',
-        data: null,
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to delete student',
-      error,
-    });
-  }
-};
-
-export const StudentController = {
-  createStudent,
+export const StudentControllers = {
   getAllStudents,
   getSingleStudent,
-  updateStudent,
   deleteStudent,
+  updateStudent,
 };
